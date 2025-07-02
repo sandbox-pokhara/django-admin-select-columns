@@ -1,6 +1,6 @@
 # django-admin-select-columns
 
-Dyanamically select columns in django admin changelist view with persistence
+Dynamically select columns in django admin changelist view with persistence
 
 ## Demo
 

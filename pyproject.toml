@@ -7,7 +7,7 @@ name = "django-admin-select-columns"
 version = "1.0.0"
 requires-python = ">=3"
 authors = [{ name = "Pradish Bijukchhe", email = "pradish@sandbox.com.np" }]
-description = "Dyanamically select columns in django admin changelist view with persistence"
+description = "Dynamically select columns in django admin changelist view with persistence"
 readme = "README.md"
 license = { file = "LICENSE" }
 keywords = []
