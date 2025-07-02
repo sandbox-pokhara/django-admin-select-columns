@@ -1,0 +1,49 @@
+{% extends "admin/base_site.html" %}
+{% load admin_urls static l10n %}
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static "admin/css/forms.css" %}">
+    <style>
+        .select-column{
+            max-width: 300px;
+        }
+        .select-column table{
+            width: 100%;
+            margin-bottom: 16px;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div id="content-main">
+        <div class="select-column">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {# Form-wide non-field errors #}
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}<p class="errornote">{{ error }}</p>{% endfor %}
+                {% endif %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Selected?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for field in form %}
+                            <tr>
+                                <td>{{ field.label_tag }}</td>
+                                <td>{{ field }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="submit-row">
+                    <input type="submit" name="submit" value="Save" class="default" />
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
