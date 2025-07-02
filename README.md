@@ -2,6 +2,10 @@
 
 Dyanamically select columns in django admin changelist view with persistence
 
+## Demo
+
+![Demo](demo.gif)
+
 ## Installation
 
 You can install the package via pip:
@@ -10,12 +14,42 @@ You can install the package via pip:
 pip install django-admin-select-columns
 ```
 
+Add `django_admin_select_columns` to `INSTALLED_APPS`.
+
+```py
+INSTALLED_APPS = [
+    ...
+    "django_admin_select_columns",
+    "django.contrib.admin",
+    ...
+]
+```
+
 ## Usage
 
-```python
-import django_admin_select_columns
+Simply add `SelectColumnsMixin` to your `ModelAdmin`.
 
-# usage examples here
+```python
+from django.contrib import admin
+
+from django_admin_select_columns.mixins import SelectColumnsMixin
+from my_app.models import Person
+
+
+@admin.register(Person)
+class PersonAdmin(SelectColumnsMixin, admin.ModelAdmin):
+    list_display = (
+        "first_name",
+        "last_name",
+        "email",
+        "phone_number",
+        "gender",
+        "birthdate",
+        "is_active",
+    )
+    list_filter = ("gender", "is_active")
+    search_fields = ("first_name", "last_name", "email", "phone_number")
+
 ```
 
 ## License
