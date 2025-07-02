@@ -1,4 +1,5 @@
 from typing import Any
+from typing import Sequence
 
 from django import forms
 from django.contrib import admin
@@ -16,7 +17,7 @@ from django_admin_select_columns.models import SelectedColumn
 class SelectColumnsMixin(ModelAdmin):  # type: ignore
     model: type[Model]  # for fixing pyright type
 
-    def get_list_display(self, request: HttpRequest):
+    def get_list_display(self, request: HttpRequest) -> Sequence[str]:
         objs = SelectedColumn.objects.filter(
             user=request.user, model=self.model.__name__
         ).order_by("id")
