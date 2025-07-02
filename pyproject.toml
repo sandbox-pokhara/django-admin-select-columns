@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "django-admin-select-columns"
-version = "1.0.0"
+version = "1.0.1"
 requires-python = ">=3.7"
 authors = [{ name = "Pradish Bijukchhe", email = "pradish@sandbox.com.np" }]
 description = "Dynamically select columns in django admin changelist view with persistence"
