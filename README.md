@@ -25,6 +25,12 @@ INSTALLED_APPS = [
 ]
 ```
 
+The column configuration is stored in the database. Use the migrate command to create the necessary tables.
+
+```
+python manage.py migrate
+```
+
 ## Usage
 
 Simply add `SelectColumnsMixin` to your `ModelAdmin`.
