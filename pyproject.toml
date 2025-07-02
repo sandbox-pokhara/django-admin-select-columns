@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=70.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-admin-select-columns"
+requires-python = ">=3"
+authors = [{ name = "Pradish Bijukchhe", email = "pradish@sandbox.com.np" }]
+description = "Dyanamically select columns in django admin changelist view with persistence"
+readme = "README.md"
+license = { file = "LICENSE" }
+keywords = []
+classifiers = ["Programming Language :: Python :: 3"]
+dependencies = ["Django"]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+pre-commit = ["pre-commit"]
+
+[project.urls]
+Homepage = "https://github.com/sandbox-pokhara/django-admin-select-columns"
+Issues = "https://github.com/sandbox-pokhara/django-admin-select-columns/issues"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-dir]
+"django_admin_select_columns" = "django_admin_select_columns"
+
+[tool.setuptools.dynamic]
+version = { attr = "django_admin_select_columns.__version__" }
+
+[tool.isort]
+profile = "black"
+line_length = 79
+force_single_line = true
+
+[tool.black]
+line-length = 79
+preview = true
+enable-unstable-feature = ["string_processing"]
+
+[tool.pyright]
+venvPath = "."
+venv = "venv"
+include = ["django_admin_select_columns", "test.py"]
+typeCheckingMode = "strict"
