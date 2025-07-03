@@ -15,5 +15,4 @@ class PersonAdmin(SelectColumnsMixin, admin.ModelAdmin):  # type: ignore
         "birthdate",
         "is_active",
     )
-    list_filter = ("gender", "is_active")
     search_fields = ("first_name", "last_name", "email", "phone_number")

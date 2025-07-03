@@ -2,10 +2,6 @@
 
 Dynamically select columns in django admin changelist view with persistence
 
-## Demo
-
-![Demo](https://raw.githubusercontent.com/sandbox-pokhara/django-admin-select-columns/master/demo.gif)
-
 ## Installation
 
 You can install the package via pip:
@@ -53,10 +49,23 @@ class PersonAdmin(SelectColumnsMixin, admin.ModelAdmin):
         "birthdate",
         "is_active",
     )
-    list_filter = ("gender", "is_active")
     search_fields = ("first_name", "last_name", "email", "phone_number")
 
 ```
+
+## Screenshots
+
+### Before
+
+![before](https://raw.githubusercontent.com/sandbox-pokhara/django-admin-select-columns/master/docs/before.png)
+
+### Select Columns
+
+![select-columns](https://raw.githubusercontent.com/sandbox-pokhara/django-admin-select-columns/master/docs/select-columns.png)
+
+### After
+
+![after](https://raw.githubusercontent.com/sandbox-pokhara/django-admin-select-columns/master/docs/after.png)
 
 ## License
 
